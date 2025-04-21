@@ -3,7 +3,7 @@ public:
     int numberOfArrays(vector<int>& differences, int lower, int upper) {
        
        int diffsize = differences.size();
-        vector<int> hidd(diffsize+1);
+     //   vector<int> hidd(diffsize+1);
       
       // hidd[0] = 3;
 

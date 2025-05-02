@@ -2,12 +2,14 @@ class Solution {
 public:
     int thirdMax(vector<int>& nums) {
         
-       set<int> s(nums.begin(), nums.end());
-       vector<int> ans(s.begin(), s.end());
+       set<int, greater<int>> set1(nums.begin(), nums.end());
+      
 
-        if(ans.size()<3) return ans[ans.size()-1];
+        if(set1.size()<3) return *set1.begin() ;
            
-    
-        return ans[ans.size()-3];
+        auto it = set1.begin();
+        advance(it, 2);
+
+        return *it;
     }
 };

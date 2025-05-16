@@ -4,7 +4,7 @@ public:
         
          int n = nums.size();
         
-        vector<int> temp(n,-1111);
+        vector<int> temp(n,-6969);
 
         for(int i =0; i<n; i++){
             for(int j =0; j<n; j++){
@@ -16,7 +16,7 @@ public:
        int ans;
 
         for(int i=0; i<n; i++){
-            if(temp[i]==-1111){
+            if(temp[i]==-6969){
                 ans = nums[i];
                 return ans;
             }

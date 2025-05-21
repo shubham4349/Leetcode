@@ -1,24 +1,25 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        int rows = matrix.size();
-        int cols = matrix[0].size();
+        int row=matrix.size();
+        int col=matrix[0].size();
 
-        vector<int> rowMarker(rows, 1);
-        vector<int> colMarker(cols, 1);
+        vector<int>rowMarker(row,-1);
+        vector<int>colMarker(col,-1);
 
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
+        for (int i = 0; i<row; i++) {
+            for (int j = 0; j<col; j++) {
                 if (matrix[i][j] == 0) {
-                    rowMarker[i] = 0;
-                    colMarker[j] = 0;
-                }
+                    rowMarker[i] = 0; // -1 0 -1
+                    colMarker[j] = 0; // -1
+                }                     //  0                 
+                                      // -1
             }
         }
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (rowMarker[i] == 0 || colMarker[j] == 0) {
+       // copy pe dry run kr bete sab visulaise hoga
+        for (int i= 0; i< row; i++) {
+            for (int j =0; j <col; j++) {
+                if (rowMarker[i]==0 or colMarker[j]==0) {
                     matrix[i][j] = 0;
                 }
             }

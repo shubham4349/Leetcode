@@ -11,7 +11,7 @@ public:
         for(int i =0; i<n; i++){
             int comp = target-nums[i];
 
-            if(map.find(comp)!=map.end()){
+            if(map.count(comp)){
                 return  {map[comp],i};
             }
             map[nums[i]]=i;

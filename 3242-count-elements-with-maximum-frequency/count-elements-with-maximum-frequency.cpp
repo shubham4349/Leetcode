@@ -1,33 +1,25 @@
 class Solution {
 public:
     int maxFrequencyElements(vector<int>& nums) {
-        
-        int maxFreq = 0;
-         vector<int> temp;
+     
+     int n=nums.size();
+     unordered_map<int,int> mp;
 
-        int n = nums.size();
-       int count = 0;
-        for(int i =0; i<n; i++){
-            int freq = 0;
-            for(int j = 0; j<n; j++){
-                if(nums[i]==nums[j]) freq++;    
-            }
-             maxFreq = max(maxFreq, freq);
-        }
+     int maxfreq=0;
+     int elemCount=0;
 
-         for(int i =0; i<n; i++){
-            int count = 0;
-            for(int j = 0; j<n; j++){
-                if(nums[i]==nums[j]) count++;   
+     for(int i =0; i<nums.size(); i++){
+         mp[nums[i]]++; // sare key ki count badh rhi h
+         maxfreq = max(maxfreq, mp[nums[i]]); // max freq nikal li    // if(mp[nums[i]]>maxfreq) maxfreq=mp[nums[i]]
+      
+         
+     }
+     // ab check kro kin elements ki count maxfreq ke barabar h
+     for(int i =0; i<nums.size(); i++){
+        if(mp[nums[i]]==maxfreq) elemCount++;
+     }
+     return elemCount;
 
-                
-            }
-            if(count==maxFreq) {
-                    temp.push_back(nums[i]);
-                } 
-            
-        }
 
-        return temp.size();
     }
 };

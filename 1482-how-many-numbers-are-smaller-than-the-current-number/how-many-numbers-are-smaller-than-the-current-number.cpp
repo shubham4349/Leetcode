@@ -2,18 +2,25 @@ class Solution {
 public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
         int n = nums.size();
+        // pair = <i, no of elemnts jo nums[i] chote h>
+        // fir usko vector me dalke retun krdenge
+        unordered_map<int, int> mp;
 
-        vector<int> ans;
+        vector<int> sorted = nums;
+        sort(sorted.begin(), sorted.end());
 
-        for(int i =0; i<n; i++){
-            int count = 0;
-            for(int j =0; j<n; j++){
-                if(j!=i and nums[j]<nums[i]){
-                    count++;
-                }
-            }
-            ans.push_back(count);
+        // sorted me elemnets jo i se chote h is the index of i;
+        for(int i =0; i<sorted.size(); i++){
+           
+           if(mp.find(sorted[i])==mp.end()){
+             mp[sorted[i]] =i; 
+           }
         }
-        return ans;
+        vector<int> ans;
+        for(int i =0; i<n; i++){
+                ans.push_back(mp[nums[i]]);
+        }
+
+return ans;
     }
 };

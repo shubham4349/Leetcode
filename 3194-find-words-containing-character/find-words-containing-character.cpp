@@ -4,13 +4,10 @@ public:
         
         int n= words.size();
         vector<int> ans;
+        // contains in java == count in cpp 
+
         for(int i =0; i<n; i++){
-            for(int j=0; j<words[i].length(); j++){
-                if(words[i][j] == x) {
-                    ans.push_back(i);
-                    break; 
-                }
-            }
+            if(count(words[i].begin(), words[i].end(),x)) ans.push_back(i);
         }
         return ans;
     }

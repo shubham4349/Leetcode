@@ -4,23 +4,14 @@ public:
         
          int n = nums.size();
         
-        vector<int> temp(n,-6969);
+         unordered_map<int,int> freq;
+         for(int i=0; i<n; i++){
+            freq[nums[i]]++;
+         }
+         for(int i=0; i<n; i++){
+            if(freq[nums[i]]==1) return nums[i];
+         }
+         return -1;
 
-        for(int i =0; i<n; i++){
-            for(int j =0; j<n; j++){
-                if(i!=j and nums[i]==nums[j]) {
-                    temp[i] = nums[i];
-                }
-            }
-        }
-       int ans;
-
-        for(int i=0; i<n; i++){
-            if(temp[i]==-6969){
-                ans = nums[i];
-                return ans;
-            }
-        }
-        return -1;
     }
 };

@@ -7,7 +7,7 @@ public:
         // contains in java == count in cpp 
 
         for(int i =0; i<n; i++){
-            if(count(words[i].begin(), words[i].end(),x)) ans.push_back(i);
+            if(words[i].contains(x)) ans.push_back(i);
         }
         return ans;
     }

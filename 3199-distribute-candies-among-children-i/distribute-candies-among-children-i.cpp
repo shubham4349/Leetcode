@@ -9,9 +9,9 @@ public:
         // find suitable x,y,z
        
        // checking all possible values: 
-        for(int x=0; x<=limit; x++){
-            for(int y=0; y<=limit; y++){
-                for(int z=0; z<=limit; z++){
+        for(int x=0; x<=min(n,limit); x++){ // what if candy=5, but limit is 10
+            for(int y=0; y<=min(n-x, limit); y++){
+                for(int z=0; z<=min(n-x-y,limit); z++){
                     if(x+y+z ==n) count++;
                 }
             }

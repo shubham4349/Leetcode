@@ -8,12 +8,12 @@ public:
         // x,y,z <= limit;
         // find suitable x,y,z
        
-       // checking all possible values: 
-        for(int x=0; x<=min(n,limit); x++){ // what if candy=5, but limit is 10
-            for(int y=0; y<=min(n-x, limit); y++){
-                for(int z=0; z<=min(n-x-y,limit); z++){
-                    if(x+y+z ==n) count++;
-                }
+       
+        for(int x=0; x<=min(n,limit); x++){ // for child1
+            for(int y=0; y<=min(n-x, limit); y++){// for child2 
+                
+                int z = n-x-y;
+                if(z<=limit and z>=0) count++;
             }
         }
         return count;

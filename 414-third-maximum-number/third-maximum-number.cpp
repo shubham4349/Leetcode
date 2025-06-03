@@ -1,15 +1,15 @@
 class Solution {
 public:
     int thirdMax(vector<int>& nums) {
-        
-       set<int, greater<int>> set1(nums.begin(), nums.end());
-      
+      int n = nums.size();
+    //   unordered_set<int> temp();
+    int maxm = *max_element(nums.begin(), nums.end());
+    set<int> s(nums.begin(), nums.end());
+    nums.assign(s.begin(), s.end());
+    if(nums.size()>=3)  return nums[nums.size()-3];
+    return maxm;
 
-        if(set1.size()<3) return *set1.begin() ;
-           
-        auto it = set1.begin();
-        advance(it, 2);
 
-        return *it;
+   
     }
 };

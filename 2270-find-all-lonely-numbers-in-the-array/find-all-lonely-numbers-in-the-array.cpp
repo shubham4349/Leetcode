@@ -4,16 +4,18 @@ public:
         
         int n=nums.size();
 
-        unordered_map<int,int> count;
+        unordered_map<int,int> freq;
 
-        for(int i =0; i<n; i++) count[nums[i]]++;
+        for(int i =0; i<n; i++) freq[nums[i]]++;
  
         vector<int> ans;
 
          // approach: num ki count 1 ho, and num-1, num+1 array me na ho
         for(int i =0; i<n; i++){
-            if(count[nums[i]]==1){
-                 if(count[nums[i]-1]==0 and count[nums[i]+1]==0) ans.push_back(nums[i]);
+            if(freq[nums[i]]==1){
+                 int less = nums[i]-1;
+                 int more = nums[i]+1;
+                if(!freq.count(less) and !freq.count(more)) ans.push_back(nums[i]);
             }
          }
     return ans;

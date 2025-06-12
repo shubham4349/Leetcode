@@ -3,25 +3,25 @@ public:
     int calPoints(vector<string>& operations) {
         
         int n =operations.size();
+        vector<string> nums(operations.begin(), operations.end());
 
         vector<int> ans;
-
+       // int k= ans.size();
         for(int i=0; i<n; i++){
-            if(operations[i]=="C") {
+            if(nums[i]=="C") {
                 ans.pop_back();
             }
-            else if(operations[i]=="D"){
+            else if(nums[i]=="D"){
                  int last = ans[ans.size()-1]*2;
                  ans.push_back(last);
             }
-            else if(operations[i]=="+"){
+            else if(nums[i]=="+"){
                  ans.push_back(ans[ans.size()-1]+ans[ans.size()-2]);
 
             }else{
-                ans.push_back(stoi(operations[i]));
+                ans.push_back(stoi(nums[i]));
             }
         }
-      //  return ans[0];
       int sum = accumulate(ans.begin(), ans.end(), 0);
       return sum;
     }

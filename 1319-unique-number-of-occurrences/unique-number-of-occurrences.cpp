@@ -9,27 +9,16 @@ public:
         for(int i=0; i<n; i++){
             map[arr[i]]++;
         }
-        set<int> hello(arr.begin(), arr.end());
-        arr.assign(hello.begin(), hello.end());
+        unordered_set<int> hello;
+        // travesing the map
+        for(auto it=map.begin(); it!=map.end(); it++){
+            int cnt = it->second; // map ki value
 
-        vector<int> occur;
-
-        for(int i=0; i<arr.size(); i++){
-            int occurence = map[arr[i]];
-            occur.push_back(occurence);
-        }
-        // ab agar ebry elemnt of occur is unique then print true
-        unordered_map<int,int> lmao;
-
-        for(int i=0; i<occur.size(); i++){
-            lmao[occur[i]]++;
-        }
-         for(int i=0; i<occur.size(); i++){
-            if(lmao[occur[i]]>1) return false;
+            if(hello.count(cnt)){ 
+                return false;
+            }
+            hello.insert(cnt);
         }
         return true;
-
-
-
     }
 };

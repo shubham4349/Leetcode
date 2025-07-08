@@ -11,9 +11,9 @@ public:
             }
         }
         int ans=INT_MAX;
-        for(auto num : nums){
-            if(count[num]==maxfreq){
-                ans = min(ans,num);
+        for(auto it : count){
+            if(it.second==maxfreq){
+                ans = min(ans,it.first);
             }
         }
         if(ans!=INT_MAX) return ans;

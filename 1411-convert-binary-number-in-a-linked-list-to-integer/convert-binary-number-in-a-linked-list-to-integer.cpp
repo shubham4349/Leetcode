@@ -23,20 +23,19 @@ public:
         // }
       
         // return ans;
-        ListNode* temp1=head;
+        ListNode* temp=head;
         int len=0;
-        while(temp1!=nullptr){ // linked list ki len nikal rha
+        while(temp!=nullptr){ // linked list ki len nikal rha
             len++;
-            temp1=temp1->next;
+            temp=temp->next;
         }
-      //  len = len-1; // 0 se powering krni h isliye
-        ListNode* temp2=head;
+        temp =head;
         int ans=0;
         int j=len-1;
-        while(temp2){
-            ans += temp2->val*pow(2,j);
+        while(temp){
+            ans += temp->val*pow(2,j);
             j--;
-            temp2= temp2->next;
+            temp= temp->next;
         }
         return ans;
 

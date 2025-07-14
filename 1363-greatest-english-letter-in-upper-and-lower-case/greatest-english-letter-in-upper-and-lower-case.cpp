@@ -2,22 +2,20 @@ class Solution {
 public:
     string greatestLetter(string s) {
         int n=s.length();
+        //Approach2: sorting the string
+        sort(s.begin(), s.end());
         unordered_map<char,int> mp;
         for(char ch: s) mp[ch]++;
-        // for(auto it: mp){
-            
-        // }
-        vector<string> arr;
-        for(int i=0; i<n; i++){
-             string ch="";
-            if(mp.count(tolower(s[i])) and mp.count(toupper(s[i]))){
-                // maxm=(maxm, toupper(s[i]));
-                ch+=toupper(s[i]);
-                arr.push_back(ch);
+
+        for(int i=n-1; i>=0; i--){
+            char upp= toupper(s[i]);
+            char low= tolower(s[i]);
+            if(mp.count(upp) and mp.count(low)){
+                string ans="";
+                ans+=upp;
+                return ans;
             }
         }
-        if (arr.empty()) return "";
-        sort(arr.begin(), arr.end(),greater<string>());
-        return arr[0];
+        return "";
     }
 };

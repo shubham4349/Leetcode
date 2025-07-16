@@ -11,13 +11,33 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        ListNode* slow = head;
-        ListNode* fast = head;
+        // wihtout using slow and fast point
 
-        while(fast!=nullptr and fast->next!=nullptr){
-              slow = slow->next;
-              fast = fast->next->next;
+        ListNode* temp=head;
+        int len=0;
+
+        while(temp!=nullptr){
+            len++;
+            temp=temp->next;
         }
-        return slow;
+        temp=head;
+    //     int midNode= len/2;
+    //  //   if(midNode%2!=1) midNode=midNode+1; // agar even h to second middle node
+    //      if(midNode%2==1) 
+        int midPosn=0;
+        if(len%2==1) midPosn = len/2 +1;
+        else midPosn= len/2 +1; // from example
+          
+        int newLen=0;
+        while(temp!=nullptr){
+            newLen++;
+            if(newLen==midPosn){
+                 break;
+            }
+             temp=temp->next;
+           
+        }
+        return temp;
+
     }
 };

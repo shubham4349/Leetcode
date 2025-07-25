@@ -1,23 +1,19 @@
 class Solution {
 public:
     int countConsistentStrings(string allowed, vector<string>& words) {
-        // approahc:1
-        set<char> allow;
-        for(char ch: allowed) allow.insert(ch);
-
-        vector<string> ans;
+        // approahc:2
+        set<char> allow(allowed.begin(), allowed.end());
+    
+       int count=0;
         for(string word : words){
+            bool consistentWord=true;
             for(char ch: word){
                 if(allow.count(ch)==0){
-                    ans.push_back(word);
-                    break;
+                    consistentWord=false;
                 }
             }
+            if(consistentWord) count++;
         }
-        // int count = abs(words.size()-ans.size());
-        int w1=words.size();
-        int w2= ans.size();
-        int count= abs(w1-w2);
         return count;
     }
 };

@@ -2,23 +2,13 @@ class Solution {
 public:
     int countPrefixes(vector<string>& words, string s) {
         
-        int n=s.length();
-
-        int k=words.size();
+        // optimal:
+        int n=words.size();
         int count=0;
-        for(int i=0; i<k; i++){
-            int check=0;
-            if(words[i].size()<=n){
-                for(int j=0; j<words[i].size(); j++){
-                    string str=words[i];
-                // if(words[i].size()>)
-                    if(str[j]==s[j]) check++;
-                }
-                if(check
-                ==words[i].size()) count++;
-            }
-           
+        for(int i=0; i<n; i++){
+            if(s.find(words[i])==0) count++; // agar string s ke start me ho to uska index 0 rehta h, so thats what we are checking
         }
         return count;
+        
     }
 };

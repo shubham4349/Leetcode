@@ -1,20 +1,8 @@
 class Solution {
 public:
-    bool firstRowCheck(string s1, string first){
+    bool RowCheck(string s1, string s2){
         for(char ch: s1){
-            if(first.find(ch)==string::npos) return false;
-        }
-        return true;
-    }
-     bool secondRowCheck(string s1, string second){
-        for(char ch: s1){
-            if(second.find(ch)==string::npos) return false;
-        }
-        return true;
-    }
-     bool thirdRowCheck(string s1, string third){
-        for(char ch: s1){
-            if(third.find(ch)==string::npos) return false;
+            if(s2.find(ch)==string::npos) return false;
         }
         return true;
     }
@@ -30,16 +18,12 @@ public:
         for(int i=0; i<n; i++){
             string org=words[i];
             string s=words[i];
-            transform(s.begin(), s.end(), s.begin(), ::tolower); // jo tolower method h vo characters me lagta h, agar pure string ko ek bar me transform krna h so use transform method
-            bool checkone=firstRowCheck(s,first);
-           
-            bool checktwo=secondRowCheck(s,second);
-            bool checkthree=thirdRowCheck(s,third);
+            transform(s.begin(), s.end(), s.begin(), ::tolower); 
+            bool checkone=RowCheck(s,first);
+            bool checktwo=RowCheck(s,second);
+            bool checkthree=RowCheck(s,third);
 
-             if(checkone==true) ans.push_back(org);
-             else if(checktwo==true) ans.push_back(org);
-             else if(checkthree==true) ans.push_back(org);
-
+             if(checkone==true or checktwo==true or checkthree==true) ans.push_back(org);
         }
         return ans;
     }

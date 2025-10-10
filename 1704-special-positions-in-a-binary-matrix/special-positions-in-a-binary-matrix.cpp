@@ -1,17 +1,17 @@
 class Solution {
 public:
-    int checkRow(vector<vector<int>> mat,int idx,int imp){
+    int checkRow(vector<vector<int>> mat,int x,int y){
          for(int j=0; j<mat[0].size(); j++){
-             if(j!=imp){
-                if(mat[idx][j]!=0) return false;
+             if(j!=y){
+                if(mat[x][j]!=0) return false;
              }
          }
          return true;
     }
-    int checkCol(vector<vector<int>> mat,int imp,int idx){
+    int checkCol(vector<vector<int>> mat,int x,int y){
          for(int i=0; i<mat.size(); i++){
-             if(i!=imp) {
-                    if(mat[i][idx]!=0) return false;
+             if(i!=x) {
+                    if(mat[i][y]!=0) return false;
              }
          }
          return true;

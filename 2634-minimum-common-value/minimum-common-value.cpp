@@ -2,17 +2,17 @@
 class Solution {
 public:
     int getCommon(vector<int>& nums1, vector<int>& nums2) {
-        set<int> n1(all(nums1));
-        set<int> n2(all(nums2));
-        set<int> s;
-        for(int num:nums1) s.insert(num);
-        for(int num:nums2) s.insert(num);
-        vector<int> hey(all(s));
-        for(int num:hey){
-            if(n1.find(num)!=n1.end() and n2.find(num)!=n2.end()){ // agar n1, n2 dono me ho
-                return num;
-            }
-        }
+         // approach 2:
+         // since arry sorted h so 2 pointer use kr
+         int i=0;
+         int j=0;
+         while(i<nums1.size() and j<nums2.size()){
+             if(nums1[i]==nums2[j]){
+                 return nums1[i];
+             }
+             else if(nums1[i]<nums2[j]) i++; // i ko bada kr
+             else j++;
+         }
          return -1;
     }
 };

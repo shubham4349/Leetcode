@@ -1,22 +1,22 @@
 class Solution {
 public:
-    void swap(vector<int>& a, vector<int>& b){
-         vector<int> temp=a;
-         a=b;
-         b=temp;
-    }
     vector<vector<int>> sortTheStudents(vector<vector<int>>& score, int k) {
-        int m=score.size();
-        int n=score[0].size();
-        // u can use-> comparator, any other sorting algo, using pairs
-        // using bubble sort
-        for(int i=0; i<m-1; i++){
-           for(int j=0; j<m-i-1; j++){
-              if(score[j][k]<score[j+1][k]){
-                    swap(score[j],score[j+1]);
-                }
-           }
+        // method 2-> using pairs
+        // pair me sorting pehle key ke basis pe hoti h= p<k,v>
+        // agar key same ho then value
+
+        int n=score.size();
+        vector<pair<int,int>> nums;
+
+        for(int i=0; i<n; i++){
+            nums.push_back({-score[i][k],i}); // -krne se descending sort hojayega
         }
-        return score;
+        sort(nums.begin(),nums.end());
+        // nums sorted h
+        vector<vector<int>> ans;
+        for(auto &[key,val]:nums){
+            ans.push_back(score[val]);
+        }
+        return ans;
     }
 };

@@ -15,7 +15,7 @@ public:
         // for(int i=1; i<=1e5; i++){
         //     if(stoll(num)%k==0) return num.length();
         //     else num+='1';
-        // } // out of range
+        // } 
 
         //int len=0;
         int rem=0;

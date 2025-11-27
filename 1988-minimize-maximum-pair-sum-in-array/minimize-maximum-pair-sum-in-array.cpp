@@ -17,6 +17,7 @@ public:
             pairsum.push_back(nums[i]+nums[j]);
             i++;j--;
         }
+        // pairing hi aisi kro jisse maxum sbse kam aaye
         int ans=*max_element(pairsum.begin(),pairsum.end());
         return ans;
 

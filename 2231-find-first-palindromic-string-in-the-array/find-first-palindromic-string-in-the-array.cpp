@@ -1,7 +1,7 @@
 class Solution {
 public:
     // mthd2: using 2 ptr
-    bool isPalindrome(string word){
+    bool isPalindrome(string &word){
         int i=0;
         int j=word.size()-1;
         while(i<=j){
@@ -13,13 +13,9 @@ public:
     }
     string firstPalindrome(vector<string>& words) {
         int n=words.size();
-        string ans;
         for(int i=0; i<n; i++){
-            if(isPalindrome(words[i])){
-                ans=words[i];
-                break;
-            }
+            if(isPalindrome(words[i])) return words[i];
         }
-        return ans;
+        return "";
     }
 };

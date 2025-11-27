@@ -1,10 +1,15 @@
 class Solution {
 public:
-    // mthd1: using rev bultin
+    // mthd2: using 2 ptr
     bool isPalindrome(string word){
-        string orig=word;
-        reverse(word.begin(),word.end());
-        return word==orig;
+        int i=0;
+        int j=word.size()-1;
+        while(i<=j){
+           if(word[i]!=word[j]) return false;
+           i++;
+           j--;
+        }
+        return true;
     }
     string firstPalindrome(vector<string>& words) {
         int n=words.size();

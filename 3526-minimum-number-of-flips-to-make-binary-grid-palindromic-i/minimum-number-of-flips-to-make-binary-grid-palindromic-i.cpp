@@ -13,8 +13,8 @@ public:
             int y=c-1;
             while(x<=y){
                 if(grid[i][x]!=grid[i][y]){
-                    grid[i][x]=grid[i][y];
-                    grid[i][y]=grid[i][x];
+                    // grid[i][x]=grid[i][y];
+                    // grid[i][y]=grid[i][x];
                     rowcnt++;  
                 }
                 x++;y--;
@@ -25,9 +25,9 @@ public:
             int x=0;
             int y=r-1;
             while(x<=y){
-                if(gridd[x][j]!=gridd[y][j]){ // gridd isliye kyuki row opn ke bad grid ke elements change hogye
-                   gridd[x][j]=gridd[y][j];
-                   gridd[y][j]=gridd[x][j];
+                if(grid[x][j]!=grid[y][j]){ 
+                //    grid[x][j]=grid[y][j];
+                //    grid[y][j]=grid[x][j];
                     colcnt++;  
                 }
                 x++;y--;

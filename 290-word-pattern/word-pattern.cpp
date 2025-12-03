@@ -28,8 +28,8 @@ public:
         for(int i=0; i<n; i++){
             char x=pattern[i];
             string y=v[i];
-            if(mp1.count(x) and mp1[x]!=y) return false;
-            if(mp2.count(y) and mp2[y]!=x) return false;
+            if( mp1[x]!=y) return false; // a!=dog
+            if( mp2[y]!=x) return false; // god!=a
          
         }
         return true;

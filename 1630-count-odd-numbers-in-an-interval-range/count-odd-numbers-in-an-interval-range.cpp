@@ -6,5 +6,6 @@ public:
             if(i%2==1) cnt++;
         }
         return cnt;
+        // use math, countOdds = high-low+1 / 2
     }
 };

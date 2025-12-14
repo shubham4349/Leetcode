@@ -2,32 +2,18 @@ class Solution {
 public:
     vector<int> findingUsersActiveMinutes(vector<vector<int>>& logs, int k) {
         // har id ke unique minutes cnt kr
-        // jese for id0-> 2,5 minutes-> 2
-
-        vector<int> ans(k);
-
-        unordered_map<int,unordered_set<int>> mp;
-        // set<int> s;
+        // jese for id0-> 2,5 minutes-> unique->2
+        
+        // mthd-2
+        vector<int> ans(k,0);
+        map<int,set<int>> mp;
         for(auto &v:logs){
-            int id=v[0];
-            int time=v[1];
-            mp[id].insert(time);
-            // mp.insert({id,{time}});
+            mp[v[0]].insert(v[1]);
         }
-        map<int,int> idtm; // id-time(unique)
         for(auto &m:mp){
-            idtm.insert({m.first,m.second.size()});
+            int time=m.second.size();
+            ans[time-1]++; // 0->2,1->2; time=2 ke liye ans[2] do bare increase kr rha 
         }
-        map<int,int> tmid; // tm-id count
-        for(auto &m:idtm){
-            int uniqueTime=m.second;
-            tmid[uniqueTime]++;
-        }
-        // for(int i=0; i<n; i++){
-            for(int j=1; j<=k; j++){
-                ans[j-1]=tmid[j];
-            }
-            return ans;
-        // }
+        return ans;
     }
 };

@@ -6,7 +6,7 @@ public:
 
         vector<int> ans(k);
 
-        map<int,set<int>> mp;
+        unordered_map<int,unordered_set<int>> mp;
         // set<int> s;
         for(auto &v:logs){
             int id=v[0];

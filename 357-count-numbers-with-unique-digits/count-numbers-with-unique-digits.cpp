@@ -8,7 +8,7 @@ public:
         // 3 digit ke unique-> 9*9*8+(2 digit)
         vector<int> cnt(11,0);// 0 se 10
         cnt[0]=1;
-        cnt[1]=9;
+        cnt[1]=9; // 1 digit ke total 9 unique
         for(int i=2; i<=10; i++){
             cnt[i]=cnt[i-1]*(11-i); // 9,8,7
             // cnt[2]=9*9-> 2 digit ke total 81 unique

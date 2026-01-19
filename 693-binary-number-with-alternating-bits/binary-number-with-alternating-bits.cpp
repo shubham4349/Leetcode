@@ -8,8 +8,8 @@ public:
         // num1 xor num2 loge to ->111111
         // so agar alternating bits rhhega to uska right shit xor ke bad 1 aayega 
       //  so last me check kro agar all ones bacha then true
-
-     unsigned int x= n^(n>>1);
+     long long y=n;
+     long long x= y^(y>>1);
 
       if((x&(x+1))==0)return true;
       // and-> multiply 

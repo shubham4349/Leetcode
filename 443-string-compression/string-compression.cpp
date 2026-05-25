@@ -1,19 +1,7 @@
 class Solution {
 public:
     int compress(vector<char>& chars) {
-        // jitne char h unka cnt unke sath ek naye string me append kr
-        // map<char,int> mp;
-        // for(auto& ch:chars){
-        //     mp[ch]++;
-        // }
-        // string ans="";
-        // for(auto&[key,val]:mp){
-        //    ans+=key;
-        //    string cnt=to_string(val);
-        //    ans+=cnt;
-        // }
-        // int n=ans.size();
-        // return n;
+       // jhatu question alert!! 
         string s="";
         int cnt=0;
         if(chars.size()==1) return 1;
@@ -22,7 +10,6 @@ public:
                 cnt++;
                 i++;
             }
-         //   i--;
             cnt++; 
             s+=chars[i];
             if(cnt>1)  s+=to_string(cnt);

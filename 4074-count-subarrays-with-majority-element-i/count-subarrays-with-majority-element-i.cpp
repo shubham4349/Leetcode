@@ -10,7 +10,7 @@ public:
          int size=0;
 
             for(int j=i; j<n; j++){ // max-1e3
-                temp.push_back(nums[j]);
+               // temp.push_back(nums[j]);
                 size++;
                 if(nums[j]==target) target_cnt++;
 
